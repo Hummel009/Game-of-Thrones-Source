@@ -737,12 +737,6 @@ public class TileNode extends TileThaumcraft implements INode, IWandable {
 		int dimbl = ThaumcraftWorldGenerator.getDimBlacklist(worldObj.provider.dimensionId);
 		int biobl = ThaumcraftWorldGenerator.getBiomeBlacklist(worldObj.getBiomeGenForCoords(xCoord, zCoord).biomeID);
 		if (biobl != 0 && biobl != 2 && worldObj.provider.dimensionId != -1 && worldObj.provider.dimensionId != 1 && dimbl != 0 && dimbl != 2 && nodeType == NodeType.DARK && count % 50 == 0) {
-			int x = xCoord + worldObj.rand.nextInt(12) - worldObj.rand.nextInt(12);
-			int z = zCoord + worldObj.rand.nextInt(12) - worldObj.rand.nextInt(12);
-			BiomeGenBase bg = worldObj.getBiomeGenForCoords(x, z);
-			if (bg.biomeID != ThaumcraftWorldGenerator.biomeEerie.biomeID) {
-				Utils.setBiomeAt(worldObj, x, z, ThaumcraftWorldGenerator.biomeEerie);
-			}
 			if (Config.hardNode && worldObj.rand.nextBoolean() && worldObj.getClosestPlayer(xCoord + 0.5D, yCoord + 0.5D, zCoord + 0.5D, 24.0D) != null) {
 				EntityGiantBrainyZombie entity = new EntityGiantBrainyZombie(worldObj);
 				if (entity != null) {
