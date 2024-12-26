@@ -193,29 +193,29 @@ public class GOTBiomeDecorator {
 			stalactiteGen = new GOTWorldGenStalactites(GOTBlocks.stalactiteObsidian);
 		}
 		for (l2 = 0; l2 < 3; ++l2) {
-			i = chunkX + rand.nextInt(16) + 8;
-			j4 = rand.nextInt(60);
-			int k8 = chunkZ + rand.nextInt(16) + 8;
+			i = chunkX + GOTPseudoRandom.RANDOM_16.nextInt() + 8;
+			j4 = GOTPseudoRandom.RANDOM_60.nextInt();
+			int k8 = chunkZ + GOTPseudoRandom.RANDOM_16.nextInt() + 8;
 			stalactiteGen.generate(worldObj, rand, i, j4, k8);
 		}
 		for (l2 = 0; l2 < quagmirePerChunk; ++l2) {
-			i = chunkX + rand.nextInt(16) + 8;
-			k = chunkZ + rand.nextInt(16) + 8;
+			i = chunkX + GOTPseudoRandom.RANDOM_16.nextInt() + 8;
+			k = chunkZ + GOTPseudoRandom.RANDOM_16.nextInt() + 8;
 			quagmireGen.generate(worldObj, rand, i, worldObj.getTopSolidOrLiquidBlock(i, k), k);
 		}
 		for (l2 = 0; l2 < sandPerChunk; ++l2) {
-			i = chunkX + rand.nextInt(16) + 8;
-			k = chunkZ + rand.nextInt(16) + 8;
+			i = chunkX + GOTPseudoRandom.RANDOM_16.nextInt() + 8;
+			k = chunkZ + GOTPseudoRandom.RANDOM_16.nextInt() + 8;
 			sandGen.generate(worldObj, rand, i, worldObj.getTopSolidOrLiquidBlock(i, k), k);
 		}
 		for (l2 = 0; l2 < clayPerChunk; ++l2) {
-			i = chunkX + rand.nextInt(16) + 8;
-			k = chunkZ + rand.nextInt(16) + 8;
+			i = chunkX + GOTPseudoRandom.RANDOM_16.nextInt() + 8;
+			k = chunkZ + GOTPseudoRandom.RANDOM_16.nextInt() + 8;
 			clayGen.generate(worldObj, rand, i, worldObj.getTopSolidOrLiquidBlock(i, k), k);
 		}
-		if (rand.nextInt(60) == 0) {
-			i4 = chunkX + rand.nextInt(16) + 8;
-			k6 = chunkZ + rand.nextInt(16) + 8;
+		if (GOTPseudoRandom.RANDOM_60.nextInt() == 0) {
+			i4 = chunkX + GOTPseudoRandom.RANDOM_16.nextInt() + 8;
+			k6 = chunkZ + GOTPseudoRandom.RANDOM_16.nextInt() + 8;
 			surfaceGravelGen.generate(worldObj, rand, i4, 0, k6);
 		}
 		if (!biomeVariant.isDisableStructures() && Math.abs(chunkX) > 32 && Math.abs(chunkZ) > 32) {
@@ -228,8 +228,8 @@ public class GOTBiomeDecorator {
 			if (!roadNear && !wallNear && !linkerNear && !anyFixedSettlementsAt(worldObj, chunkX, chunkZ)) {
 				for (Structure randomstructure : structures) {
 					if (structureRand.nextInt(randomstructure.getChunkChance()) == 0) {
-						int i6 = chunkX + rand.nextInt(16) + 8;
-						k2 = chunkZ + rand.nextInt(16) + 8;
+						int i6 = chunkX + GOTPseudoRandom.RANDOM_16.nextInt() + 8;
+						k2 = chunkZ + GOTPseudoRandom.RANDOM_16.nextInt() + 8;
 						j5 = worldObj.getTopSolidOrLiquidBlock(i6, k2);
 						randomstructure.getStructureGen().generate(worldObj, rand, i6, j5, k2);
 					}
@@ -244,8 +244,8 @@ public class GOTBiomeDecorator {
 			++trees;
 		}
 		for (l4 = 0; l4 < trees; ++l4) {
-			int i7 = chunkX + rand.nextInt(16) + 8;
-			k7 = chunkZ + rand.nextInt(16) + 8;
+			int i7 = chunkX + GOTPseudoRandom.RANDOM_16.nextInt() + 8;
+			k7 = chunkZ + GOTPseudoRandom.RANDOM_16.nextInt() + 8;
 			WorldGenAbstractTree treeGen = getRandomTreeForVariant(rand, biomeVariant).create(false, rand);
 			treeGen.generate(worldObj, rand, i7, worldObj.getHeightValue(i7, k7), k7);
 		}
@@ -253,76 +253,76 @@ public class GOTBiomeDecorator {
 			float fallenLeaves = trees / 2.0f;
 			l3 = 0;
 			while (l3 < fallenLeaves) {
-				i5 = chunkX + rand.nextInt(16) + 8;
-				k4 = chunkZ + rand.nextInt(16) + 8;
+				i5 = chunkX + GOTPseudoRandom.RANDOM_16.nextInt() + 8;
+				k4 = chunkZ + GOTPseudoRandom.RANDOM_16.nextInt() + 8;
 				new GOTWorldGenFallenLeaves().generate(worldObj, rand, i5, worldObj.getTopSolidOrLiquidBlock(i5, k4), k4);
 				++l3;
 			}
 			float bushes = trees / 3.0f;
 			l3 = 0;
 			while (l3 < bushes) {
-				i5 = chunkX + rand.nextInt(16) + 8;
-				k4 = chunkZ + rand.nextInt(16) + 8;
+				i5 = chunkX + GOTPseudoRandom.RANDOM_16.nextInt() + 8;
+				k4 = chunkZ + GOTPseudoRandom.RANDOM_16.nextInt() + 8;
 				new GOTWorldGenBushes().generate(worldObj, rand, i5, worldObj.getTopSolidOrLiquidBlock(i5, k4), k4);
 				++l3;
 			}
 		}
 		for (l5 = 0; l5 < logsPerChunk; ++l5) {
-			int i9 = chunkX + rand.nextInt(16) + 8;
-			int k9 = chunkZ + rand.nextInt(16) + 8;
+			int i9 = chunkX + GOTPseudoRandom.RANDOM_16.nextInt() + 8;
+			int k9 = chunkZ + GOTPseudoRandom.RANDOM_16.nextInt() + 8;
 			logGen.generate(worldObj, rand, i9, worldObj.getHeightValue(i9, k9), k9);
 		}
 		int flowers = flowersPerChunk;
 		flowers = Math.round(flowers * biomeVariant.getFlowerFactor());
 		for (int l8 = 0; l8 < flowers; ++l8) {
-			int i11 = chunkX + rand.nextInt(16) + 8;
-			int j8 = rand.nextInt(128);
-			int k10 = chunkZ + rand.nextInt(16) + 8;
+			int i11 = chunkX + GOTPseudoRandom.RANDOM_16.nextInt() + 8;
+			int j8 = GOTPseudoRandom.RANDOM_128.nextInt();
+			int k10 = chunkZ + GOTPseudoRandom.RANDOM_16.nextInt() + 8;
 			flowerGen.generate(worldObj, rand, i11, j8, k10);
 		}
 		int doubleFlowers = doubleFlowersPerChunk;
 		doubleFlowers = Math.round(doubleFlowers * biomeVariant.getFlowerFactor());
 		for (int l9 = 0; l9 < doubleFlowers; ++l9) {
-			int i12 = chunkX + rand.nextInt(16) + 8;
-			j5 = rand.nextInt(128);
-			k4 = chunkZ + rand.nextInt(16) + 8;
+			int i12 = chunkX + GOTPseudoRandom.RANDOM_16.nextInt() + 8;
+			j5 = GOTPseudoRandom.RANDOM_128.nextInt();
+			k4 = chunkZ + GOTPseudoRandom.RANDOM_16.nextInt() + 8;
 			WorldGenerator doubleFlowerGen = biome.getRandomWorldGenForDoubleFlower(rand);
 			doubleFlowerGen.generate(worldObj, rand, i12, j5, k4);
 		}
 		int grasses = grassPerChunk;
 		grasses = Math.round(grasses * biomeVariant.getGrassFactor());
 		for (l3 = 0; l3 < grasses; ++l3) {
-			i5 = chunkX + rand.nextInt(16) + 8;
-			j3 = rand.nextInt(128);
-			int k11 = chunkZ + rand.nextInt(16) + 8;
+			i5 = chunkX + GOTPseudoRandom.RANDOM_16.nextInt() + 8;
+			j3 = GOTPseudoRandom.RANDOM_128.nextInt();
+			int k11 = chunkZ + GOTPseudoRandom.RANDOM_16.nextInt() + 8;
 			WorldGenerator grassGen = biome.getRandomWorldGenForGrass(rand);
 			grassGen.generate(worldObj, rand, i5, j3, k11);
 		}
 		int doubleGrasses = doubleGrassPerChunk;
 		doubleGrasses = Math.round(doubleGrasses * biomeVariant.getGrassFactor());
 		for (l7 = 0; l7 < doubleGrasses; ++l7) {
-			i2 = chunkX + rand.nextInt(16) + 8;
-			int j9 = rand.nextInt(128);
-			int k12 = chunkZ + rand.nextInt(16) + 8;
+			i2 = chunkX + GOTPseudoRandom.RANDOM_16.nextInt() + 8;
+			int j9 = GOTPseudoRandom.RANDOM_128.nextInt();
+			int k12 = chunkZ + GOTPseudoRandom.RANDOM_16.nextInt() + 8;
 			WorldGenerator grassGen = GOTBiome.getRandomWorldGenForDoubleGrass();
 			grassGen.generate(worldObj, rand, i2, j9, k12);
 		}
 		for (l7 = 0; l7 < deadBushPerChunk; ++l7) {
-			i2 = chunkX + rand.nextInt(16) + 8;
-			int j10 = rand.nextInt(128);
-			int k13 = chunkZ + rand.nextInt(16) + 8;
+			i2 = chunkX + GOTPseudoRandom.RANDOM_16.nextInt() + 8;
+			int j10 = GOTPseudoRandom.RANDOM_128.nextInt();
+			int k13 = chunkZ + GOTPseudoRandom.RANDOM_16.nextInt() + 8;
 			new WorldGenDeadBush(Blocks.deadbush).generate(worldObj, rand, i2, j10, k13);
 		}
 		for (l7 = 0; l7 < 10; ++l7) {
-			i2 = chunkX + rand.nextInt(16) + 8;
-			j2 = rand.nextInt(128);
-			int k18 = chunkZ + rand.nextInt(16) + 8;
+			i2 = chunkX + GOTPseudoRandom.RANDOM_16.nextInt() + 8;
+			j2 = GOTPseudoRandom.RANDOM_128.nextInt();
+			int k18 = chunkZ + GOTPseudoRandom.RANDOM_16.nextInt() + 8;
 			caneGen.generate(worldObj, rand, i2, j2, k18);
 		}
 		for (l7 = 0; l7 < reedPerChunk; ++l7) {
-			i2 = chunkX + rand.nextInt(16) + 8;
-			k5 = chunkZ + rand.nextInt(16) + 8;
-			int j13 = rand.nextInt(128);
+			i2 = chunkX + GOTPseudoRandom.RANDOM_16.nextInt() + 8;
+			k5 = chunkZ + GOTPseudoRandom.RANDOM_16.nextInt() + 8;
+			int j13 = GOTPseudoRandom.RANDOM_128.nextInt();
 			if (rand.nextFloat() < dryReedChance) {
 				dryReedGen.generate(worldObj, rand, i2, j13, k5);
 				continue;
@@ -330,33 +330,33 @@ public class GOTBiomeDecorator {
 			reedGen.generate(worldObj, rand, i2, j13, k5);
 		}
 		for (l7 = 0; l7 < cornPerChunk; ++l7) {
-			i2 = chunkX + rand.nextInt(16) + 8;
-			j2 = rand.nextInt(128);
-			int k19 = chunkZ + rand.nextInt(16) + 8;
+			i2 = chunkX + GOTPseudoRandom.RANDOM_16.nextInt() + 8;
+			j2 = GOTPseudoRandom.RANDOM_128.nextInt();
+			int k19 = chunkZ + GOTPseudoRandom.RANDOM_16.nextInt() + 8;
 			cornGen.generate(worldObj, rand, i2, j2, k19);
 		}
 		for (l7 = 0; l7 < cactiPerChunk; ++l7) {
-			i2 = chunkX + rand.nextInt(16) + 8;
-			j2 = rand.nextInt(128);
-			int k20 = chunkZ + rand.nextInt(16) + 8;
+			i2 = chunkX + GOTPseudoRandom.RANDOM_16.nextInt() + 8;
+			j2 = GOTPseudoRandom.RANDOM_128.nextInt();
+			int k20 = chunkZ + GOTPseudoRandom.RANDOM_16.nextInt() + 8;
 			cactusGen.generate(worldObj, rand, i2, j2, k20);
 		}
-		if (flowersPerChunk > 0 && rand.nextInt(4) == 0) {
-			i5 = chunkX + rand.nextInt(16) + 8;
-			j3 = rand.nextInt(128);
-			k5 = chunkZ + rand.nextInt(16) + 8;
+		if (flowersPerChunk > 0 && GOTPseudoRandom.RANDOM_6.nextInt() == 0) {
+			i5 = chunkX + GOTPseudoRandom.RANDOM_16.nextInt() + 8;
+			j3 = GOTPseudoRandom.RANDOM_128.nextInt();
+			k5 = chunkZ + GOTPseudoRandom.RANDOM_16.nextInt() + 8;
 			new GOTWorldGenBerryBush().generate(worldObj, rand, i5, j3, k5);
 		}
-		if (generateAgriculture && rand.nextInt(6) == 0) {
-			i5 = chunkX + rand.nextInt(16) + 8;
-			j3 = rand.nextInt(128);
-			k5 = chunkZ + rand.nextInt(16) + 8;
+		if (generateAgriculture && GOTPseudoRandom.RANDOM_6.nextInt() == 0) {
+			i5 = chunkX + GOTPseudoRandom.RANDOM_16.nextInt() + 8;
+			j3 = GOTPseudoRandom.RANDOM_128.nextInt();
+			k5 = chunkZ + GOTPseudoRandom.RANDOM_16.nextInt() + 8;
 			new WorldGenFlowers(GOTBlocks.pipeweedPlant).generate(worldObj, rand, i5, j3, k5);
 		}
-		if (generateAgriculture && rand.nextInt(6) == 0) {
-			i5 = chunkX + rand.nextInt(16) + 8;
-			j3 = rand.nextInt(128);
-			k5 = chunkZ + rand.nextInt(16) + 8;
+		if (generateAgriculture && GOTPseudoRandom.RANDOM_6.nextInt() == 0) {
+			i5 = chunkX + GOTPseudoRandom.RANDOM_16.nextInt() + 8;
+			j3 = GOTPseudoRandom.RANDOM_128.nextInt();
+			k5 = chunkZ + GOTPseudoRandom.RANDOM_16.nextInt() + 8;
 			new WorldGenFlowers(GOTBlocks.flaxPlant).generate(worldObj, rand, i5, j3, k5);
 		}
 	}
@@ -396,9 +396,9 @@ public class GOTBiomeDecorator {
 			if (!generate) {
 				continue;
 			}
-			int i = chunkX + rand.nextInt(16);
+			int i = chunkX + GOTPseudoRandom.RANDOM_16.nextInt();
 			int j = MathHelper.getRandomIntegerInRange(rand, minHeight, maxHeight);
-			int k = chunkZ + rand.nextInt(16);
+			int k = chunkZ + GOTPseudoRandom.RANDOM_16.nextInt();
 			oreGen.generate(worldObj, rand, i, j, k);
 		}
 	}
